@@ -56,3 +56,40 @@ export const getUserData = async (username) => {
   );
   return response;
 };
+
+export const getConnections = async () => {
+  const cookie = new Cookies();
+  let response = await axios.get(`${URL}/getConnections`, {
+    headers: {
+      authorization: `Bearer ${cookie.get("token")}`,
+    },
+  });
+  return response;
+};
+
+export const getSuggestions = async () => {
+  const cookie = new Cookies();
+  let response = await axios.get(`${URL}/getSuggestions`, {
+    headers: {
+      authorization: `Bearer ${cookie.get("token")}`,
+    },
+  });
+  return response;
+};
+
+export const sendsConnection = async (input) => {
+  const cookie = new Cookies();
+  console.log(input);
+  let response = await axios.post(
+    `${URL}/sendsConnection`,
+    {
+      connectTo: input,
+    },
+    {
+      headers: {
+        authorization: `Bearer ${cookie.get("token")}`,
+      },
+    }
+  );
+  return response;
+};
