@@ -30,3 +30,13 @@ export const loginUser = async (username, password) => {
   });
   return response;
 };
+
+export const getProfile = async () => {
+  const cookie = new Cookies();
+  let response = await axios.get(`${URL}/getUserDetails`, {
+    headers: {
+      authorization: `Bearer ${cookie.get("token")}`,
+    },
+  });
+  return response;
+};

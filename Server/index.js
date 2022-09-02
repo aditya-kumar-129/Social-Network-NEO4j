@@ -3,8 +3,11 @@ import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 
+import { authenticate } from "./middleware/authenticate.js";
 import { register } from "./controllers/register.js";
 import { login } from "./controllers/login.js";
+import { getUserDetails } from "./controllers/getUserDetails.js";
+
 
 const app = express();
 app.use(cors());
@@ -19,6 +22,7 @@ app.get("/", (req, res) => {
 
 app.post("/register", register);
 app.post("/login", login);
+app.get("/getUserDetails", authenticate, getUserDetails);
 
 app.listen(PORT, () => {
   console.log("app listening at port " + PORT);
