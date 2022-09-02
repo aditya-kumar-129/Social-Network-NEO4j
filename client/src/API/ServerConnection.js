@@ -40,3 +40,19 @@ export const getProfile = async () => {
   });
   return response;
 };
+
+export const getUserData = async (username) => {
+  const cookie = new Cookies();
+  let response = await axios.post(
+    `${URL}/getUserData`,
+    {
+      Username: username,
+    },
+    {
+      headers: {
+        authorization: `Bearer ${cookie.get("token")}`,
+      },
+    }
+  );
+  return response;
+};

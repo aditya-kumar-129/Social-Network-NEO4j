@@ -7,6 +7,7 @@ import { authenticate } from "./middleware/authenticate.js";
 import { register } from "./controllers/register.js";
 import { login } from "./controllers/login.js";
 import { getUserDetails } from "./controllers/getUserDetails.js";
+import { getUserData } from "./controllers/getUserData.js";
 
 
 const app = express();
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 app.post("/register", register);
 app.post("/login", login);
 app.get("/getUserDetails", authenticate, getUserDetails);
+app.post("/getUserData", authenticate, getUserData);
 
 app.listen(PORT, () => {
   console.log("app listening at port " + PORT);
