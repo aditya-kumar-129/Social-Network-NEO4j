@@ -18,6 +18,5 @@ export const getUserDetails = async (req, res) => {
     console.log(err);
     res.send({ message: err });
   }
-  console.log("/profile working");
   session.close();
 };

@@ -14,7 +14,7 @@ import DraftsIcon from "@mui/icons-material/Drafts";
 import PersonIcon from "@mui/icons-material/Person";
 
 export const ProfileCard = (props) => {
-  let numConnections = props.connections.length + " Connections ";
+  let numConnections = props?.connections?.length + " Connections ";
   return (
     <Card sx={{ px: 2, m: 3, borderRadius: 8, minWidth: 275 }} align="center">
       <CardMedia sx={{ mt: 2 }} align="center">
