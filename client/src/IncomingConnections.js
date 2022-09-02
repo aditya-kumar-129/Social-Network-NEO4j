@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IncomingConnectionCard } from "./components/incomingConnectionCard";
+import { IncomingConnectionCard } from "./components/IncomingConnectionCard";
 import { getIncomingConnections } from "./API/ServerConnection";
 
 export const IncomingConnections = (props) => {

@@ -5,7 +5,7 @@ import { Register } from "./Register";
 import { Home } from "./Home";
 import { UserPage } from "./UserPage";
 import { Profile } from "./Profile";
-import { IncomingConnections } from "./incomingConnections";
+import { IncomingConnections } from "./IncomingConnections";
 import { GetSuggestions } from "./getSuggestions";
 
 function App() {

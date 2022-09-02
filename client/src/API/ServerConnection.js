@@ -31,45 +31,9 @@ export const loginUser = async (username, password) => {
   return response;
 };
 
-export const getProfile = async () => {
-  const cookie = new Cookies();
-  let response = await axios.get(`${URL}/getUserDetails`, {
-    headers: {
-      authorization: `Bearer ${cookie.get("token")}`,
-    },
-  });
-  return response;
-};
-
-export const getUserData = async (username) => {
-  const cookie = new Cookies();
-  let response = await axios.post(
-    `${URL}/getUserData`,
-    {
-      Username: username,
-    },
-    {
-      headers: {
-        authorization: `Bearer ${cookie.get("token")}`,
-      },
-    }
-  );
-  return response;
-};
-
 export const getConnections = async () => {
   const cookie = new Cookies();
   let response = await axios.get(`${URL}/getConnections`, {
-    headers: {
-      authorization: `Bearer ${cookie.get("token")}`,
-    },
-  });
-  return response;
-};
-
-export const getSuggestions = async () => {
-  const cookie = new Cookies();
-  let response = await axios.get(`${URL}/getSuggestions`, {
     headers: {
       authorization: `Bearer ${cookie.get("token")}`,
     },
@@ -91,5 +55,67 @@ export const sendsConnection = async (input) => {
       },
     }
   );
+  return response;
+};
+
+export const getUserData = async (username) => {
+  const cookie = new Cookies();
+  let response = await axios.post(
+    `${URL}/getUserData`,
+    {
+      Username: username,
+    },
+    {
+      headers: {
+        authorization: `Bearer ${cookie.get("token")}`,
+      },
+    }
+  );
+  return response;
+};
+
+export const getProfile = async () => {
+  const cookie = new Cookies();
+  let response = await axios.get(`${URL}/getUserDetails`, {
+    headers: {
+      authorization: `Bearer ${cookie.get("token")}`,
+    },
+  });
+  return response;
+};
+
+export const getIncomingConnections = async () => {
+  const cookie = new Cookies();
+  let response = await axios.get(`${URL}/getIncomingConnections`, {
+    headers: {
+      authorization: `Bearer ${cookie.get("token")}`,
+    },
+  });
+  return response;
+};
+
+export const acceptConnection = async (acceptConnectionFrom) => {
+  const cookie = new Cookies();
+  let response = await axios.post(
+    `${URL}/acceptConnection`,
+    {
+      acceptConnectionFrom: acceptConnectionFrom,
+    },
+    {
+      headers: {
+        authorization: `Bearer ${cookie.get("token")}`,
+      },
+    }
+  );
+  return response;
+};
+
+export const getSuggestions = async () => {
+  const cookie = new Cookies();
+  let response = await axios.get(`${URL}/getSuggestions`, {
+    headers: {
+      authorization: `Bearer ${cookie.get("token")}`,
+    },
+  });
   return response;
 };
